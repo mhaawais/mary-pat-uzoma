@@ -1,5 +1,6 @@
 import React from 'react'
 import Image from 'next/image'
+import Link from 'next/link'
 
 const Hero = () => {
   return (
@@ -14,10 +15,12 @@ const Hero = () => {
           <p className="text-sm md:text-base mb-5 text-gray-200 leading-relaxed">
             The story of heartbreak, betrayal, and forgiveness shook the heavens. She gave shelter to a stranger, but what she got in return was betrayal, chaos, and a test of faith. It’s a must-read for anyone who’s ever trusted the wrong person.
           </p>
-
+   
+          <Link href={"/"} target='_blank'>  
           <button className="bg-myred text-white uppercase text-lg font-semibold px-8 py-4 rounded-full border-2 border-white/50 shadow-2xl hover:bg-opacity-95 hover:shadow-[0_0_20px_rgba(255,255,255,0.7)] hover:scale-110 transition-all duration-300 ease-in-out">
             Get the Book
           </button>
+          </Link>
 
         </div>  
 

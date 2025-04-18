@@ -1,6 +1,7 @@
-"use client";
+'use client';
 
 import React, { useState, FormEvent, ChangeEvent } from 'react';
+import Image from 'next/image';
 import { FaChevronRight } from 'react-icons/fa';
 import Link from 'next/link';
 import Header from '@/components/header';
@@ -44,15 +45,23 @@ const ContactUsClient = () => {
   };
 
   return (
-    <div>
+    <div className="bg-black text-white">
       <Header />
-      {/* Top Section: Breadcrumb */}
-      <section className="relative w-full bg-black py-16 md:py-20 lg:py-24">
-        <div className="container mx-auto flex flex-col justify-center items-center px-4">
+
+      {/* Top Section: Breadcrumb with Image Background */}
+      <section className="relative w-full py-16 md:py-20 lg:py-24">
+        {/* Background Image with 15% Opacity */}
+        <div
+          className="absolute inset-0 bg-cover bg-center opacity-20 z-0"
+          style={{ backgroundImage: `url(/assets/images/contact1.jpg)` }} // Replace with your image path
+        ></div>
+        <div className="container mx-auto flex flex-col justify-center items-center px-4 relative z-10">
           <h2 className="font-bold text-3xl md:text-5xl lg:text-6xl text-white border-t-2 border-b-2 border-myred py-4 mb-8">
             CONTACT
           </h2>
-          <div className="flex items-center gap-3">
+          <div className="flex items
+
+-center gap-3">
             <Link href="/">
               <p className="text-lg md:text-xl font-bold text-white hover:text-myred transition duration-200 underline cursor-pointer">
                 HOME
@@ -66,89 +75,121 @@ const ContactUsClient = () => {
         </div>
       </section>
 
-      {/* Bottom Section: Contact Form */}
-      <section className="max-w-lg mx-auto px-4 py-12 sm:px-6">
-        <h1 className="text-3xl font-bold text-gray-900 text-center mb-4">Contact</h1>
-        <p className="text-base text-gray-500 text-center mb-8">
-          Please use the form below to get in touch.
-        </p>
+      {/* Combined Section */}
+      <section className="flex flex-col md:flex-row w-full min-h-screen">
+        {/* Left Section with background and image */}
+        <div className="w-full md:w-1/2 relative flex items-center justify-end bg-black h-[60vh] md:h-auto">
+          <div
+            className="absolute left-0 top-0 bottom-0 w-[70%] bg-cover bg-center z-0"
+            style={{ backgroundImage: `url(/assets/images/contact2.jpg)` }}
+          ></div>
 
-        <form onSubmit={handleSubmit} className="space-y-5">
-          <div className="flex flex-col">
-            <label htmlFor="name" className="text-xs font-semibold text-gray-700 uppercase mb-2">
-              Name
-            </label>
-            <input
-              type="text"
-              id="name"
-              name="name"
-              value={formData.name}
-              onChange={handleChange}
-              required
-              placeholder="Your name"
-              className="p-3 border border-gray-200 rounded shadow-sm focus:outline-none focus:ring-1 focus:ring-gray-400 placeholder-gray-400 text-sm"
+          <div className="relative z-10 w-64 h-64 sm:w-72 sm:h-72 md:w-80 md:h-80 lg:w-96 lg:h-96 mr-2 md:mr-2 mt-12 md:mt-0">
+            {/* Adjusted image sizes for responsiveness and reduced margin */}
+            <Image
+              src="/assets/images/contactformpic.jpg"
+              alt="Mary Pat"
+              height={500}
+              width={300}
+              className="rounded-lg shadow-lg object-cover" // Added object-cover for better scaling
+              priority
             />
           </div>
+        </div>
 
-          <div className="flex flex-col">
-            <label htmlFor="email" className="text-xs font-semibold text-gray-700 uppercase mb-2">
-              Email
-            </label>
-            <input
-              type="email"
-              id="email"
-              name="email"
-              value={formData.email}
-              onChange={handleChange}
-              required
-              placeholder="Your email address"
-              className="p-3 border border-gray-200 rounded shadow-sm focus:outline-none focus:ring-1 focus:ring-gray-400 placeholder-gray-400 text-sm"
-            />
-          </div>
-
-          <div className="flex flex-col">
-            <label htmlFor="message" className="text-xs font-semibold text-gray-700 uppercase mb-2">
-              Message
-            </label>
-            <textarea
-              id="message"
-              name="message"
-              value={formData.message}
-              onChange={handleChange}
-              required
-              placeholder="Your message"
-              rows={5}
-              className="p-3 border border-gray-200 rounded shadow-sm focus:outline-none focus:ring-1 focus:ring-gray-400 placeholder-gray-400 text-sm resize-y"
-            />
-          </div>
-
-          <button
-            type="submit"
-            className="w-full bg-gray-800 text-white py-3 rounded text-sm font-medium hover:bg-gray-900 transition-colors"
+        {/* Right Side Content */}
+        <div className="w-full md:w-1/2 bg-black flex flex-col justify-center p-6 md:p-8 mt-16 md:mt-6">
+          {/* Reduced padding from p-12 to p-8 on md screens */}
+          <h3 className="text-myred text-lg md:text-xl font-semibold uppercase tracking-wide">
+            ABOUT MARRY —— 
+          </h3>
+          <h2
+            className="text-white text-3xl md:text-4xl font-bold leading-tight mt-2"
+            style={{ textShadow: '1px 1px 2px myred' }}
           >
-            Send message
-          </button>
-        </form>
-
-        {status && (
-          <p
-            className={`mt-5 text-center text-sm ${
-              status.includes('successfully') ? 'text-green-600' : 'text-red-600'
-            }`}
-          >
-            {status}
+            MESSAGE MARRY PAT
+          </h2>
+          <p className="text-white text-base md:text-lg lg:text-xl mt-6 leading-relaxed mb-8">
+            I would love to hear from you, please drop me a line!
           </p>
-        )}
 
-        <div className="mt-8 text-center">
-          <p className="text-sm text-gray-500">
+          {/* Contact Form */}
+          <form onSubmit={handleSubmit} className="space-y-5">
+            <div className="flex flex-col">
+              <label htmlFor="name" className="text-xs font-semibold text-gray-300 uppercase mb-2">
+                Name
+              </label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                value={formData.name}
+                onChange={handleChange}
+                required
+                placeholder="Your name"
+                className="p-3 border border-gray-600 bg-black text-white rounded shadow-sm focus:outline-none focus:ring-2 focus:ring-myred placeholder-gray-400 text-sm"
+              />
+            </div>
+
+            <div className="flex flex-col">
+              <label htmlFor="email" className="text-xs font-semibold text-gray-300 uppercase mb-2">
+                Email
+              </label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                value={formData.email}
+                onChange={handleChange}
+                required
+                placeholder="Your email address"
+                className="p-3 border border-gray-600 bg-black text-white rounded shadow-sm focus:outline-none focus:ring-2 focus:ring-myred placeholder-gray-400 text-sm"
+              />
+            </div>
+
+            <div className="flex flex-col">
+              <label htmlFor="message" className="text-xs font-semibold text-gray-300 uppercase mb-2">
+                Message
+              </label>
+              <textarea
+                id="message"
+                name="message"
+                value={formData.message}
+                onChange={handleChange}
+                required
+                placeholder="Your message"
+                rows={5}
+                className="p-3 border border-gray-600 bg-black text-white rounded shadow-sm focus:outline-none focus:ring-2 focus:ring-myred placeholder-gray-400 text-sm resize-y"
+              />
+            </div>
+
+            <button
+              type="submit"
+              className="w-full bg-myred text-white py-3 rounded text-sm font-medium hover:opacity-90 transition-colors"
+            >
+              Send message
+            </button>
+          </form>
+
+          {status && (
+            <p
+              className={`mt-5 text-sm ${
+                status.includes('successfully') ? 'text-green-400' : 'text-red-500'
+              }`}
+            >
+              {status}
+            </p>
+          )}
+
+          <div className="mt-8 text-sm text-gray-400">
             Or email me at{' '}
-            <a href="mailto:your.email@example.com" className="text-blue-600 hover:underline">
+            <a href="mailto:your.email@example.com" className="text-myred hover:underline">
               your.email@example.com
             </a>
-          </p>
+          </div>
         </div>
       </section>
+
       <Footer />
     </div>
   );

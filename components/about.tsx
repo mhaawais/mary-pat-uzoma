@@ -12,7 +12,7 @@ const About = () => {
         <div 
           className="absolute left-0 top-0 bottom-0 w-[75%] bg-cover bg-center z-0"
           style={{ backgroundImage: `url(/assets/images/book.jpg)` }}
-        ></div>
+        ></div>      
 
         {/* Foreground Image (Mary Pat) aligned right */}
         <div className="relative z-10 w-72 h-72 md:w-96 md:h-96 mr-4 md:mr-12">
