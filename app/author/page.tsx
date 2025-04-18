@@ -110,14 +110,14 @@ const Author = () => {
             <div key={index} className="group relative w-full overflow-hidden rounded-lg shadow-lg">
               <Image
                 src={src}
-                alt={`Writer ${index + 1}`}
+                alt={marry}
                 width={300}
                 height={300}
                 className="w-full h-full object-cover transform transition-transform duration-500 group-hover:scale-110"
               />
               {/* Overlay */}
               <div className="absolute inset-0 bg-black bg-opacity-40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                <p className="text-white text-sm font-semibold">Writer {index + 1}</p>
+                <p className="text-white text-sm font-semibold"></p>
               </div>
             </div>
           ))}
