@@ -8,9 +8,14 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        custom: ['MyCustomFont', 'sans-serif'], // You can use 'custom' as class
+      },
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+        myred: '#DE0713', // name it whatever you want
+        onhover: '#f51307'
       },
     },
   },
