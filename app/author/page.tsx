@@ -9,7 +9,7 @@ import Four from '@/components/four';
 
 export const metadata: Metadata = {
   title: "Author - Marry Pat Uzoma", 
-  description: "Learn more about me",
+  description: "Learn about Mary Pat Mbamah Uzoma, author of 'Misplaced Trust and the Power of Forgiveness.' Discover her journey of faith, strength, and purpose.",
 };
 
 const Author = () => {
@@ -60,10 +60,10 @@ const Author = () => {
                 Mary Pat Mbamah Uzoma (Marypee): A Life of Faith, Strength, and Purpose
               </h3>
               <div className="text-white text-base md:text-lg space-y-6 leading-relaxed">
-                <p className="tracking-tight drop-shadow-[0_0_2px_white]">
+                <p className="tracking-tight">
                   Mary Pat Uzoma, affectionately known as Marypee, was born and raised in Eastern Nigeria, in the heart of Igbo land. From early on, she had a passion for learning and uplifting others. She graduated from Awka College of Education in Anambra State with a Nigerian Certificate in Education, a milestone that began her lifelong love for teaching and making a difference in people’s lives.
                 </p>
-                <p className="tracking-tight drop-shadow-[0_0_2px_white]">
+                <p className="tracking-tight">
                   Driven by determination and dreams of a brighter future, Marypee relocated to the United States of America early in life. Embracing new beginnings, she returned to school and earned a nursing degree from UMass Boston, graduating with honors (magna cum laude). She passed her board exams and became a Registered Nurse, a profession she embraced with excellence and compassion for over 37 years Plus.
                 </p>
               </div>
@@ -72,22 +72,22 @@ const Author = () => {
 
           {/* Remaining Paragraphs Below Image */}
           <div className="w-full text-white text-base md:text-lg space-y-6 leading-relaxed mt-4">
-            <p className="tracking-tight drop-shadow-[0_0_2px_white]">
+            <p className="tracking-tight">
               But her ambitions didn’t stop there. Marypee also became a licensed real estate agent, later transitioning into real estate investment. She founded and directed a CNA-accredited nursing program in Massachusetts, creating opportunities for others to thrive in the medical field just as she had.
             </p>
-            <p className="tracking-tight drop-shadow-[0_0_2px_white]">
+            <p className="tracking-tight">
               Life brought its share of storms. Marypee endured serious health challenges and a painful divorce, trials that tested her strength but never broke her spirit. Through it all, she emerged even stronger, her unwavering faith in God serving as her anchor.
             </p>
-            <p className="tracking-tight drop-shadow-[0_0_2px_white]">
+            <p className="tracking-tight">
               She is the proud mother of three children, including her fourth child, whom she calls her “divine gift”. Her children have been her pride and joy, and she now celebrates life as a grandmother to five plus beautiful grandchildren, each one a precious reminder of God’s love.
             </p>
-            <p className="tracking-tight drop-shadow-[0_0_2px_white]">
+            <p className="tracking-tight">
               Marypee is more than her titles and accomplishments. She is a woman of deep faith, grace, and resilience. One of the founding members of several prominent churches in Massachusetts is still remembered by members of those churches today.
             </p>
-            <p className="tracking-tight drop-shadow-[0_0_2px_white]">
+            <p className="tracking-tight">
               Her life is a living proof of the scripture: “Many are the afflictions of the righteous, but the Lord delivers them out of them all.” Everything she has achieved, she credits to God’s mercy, favor, and guidance.
             </p>
-            <p className="tracking-tight drop-shadow-[0_0_2px_white]">
+            <p className="tracking-tight">
               Today, Marypee stands as a shining example of what it means to live with purpose, love, and unwavering faith. Her journey continues to inspire all who know her. To God be all the Glory.
             </p>
           </div>

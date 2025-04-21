@@ -7,7 +7,7 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Blog - Marry Pat Uzoma",
-  description: "Read my all Blogs here",
+  description: "Blog: Misplaced Trust and the Power of Forgiveness - Mary Pat Mbamah Uzoma shares insights on trust, betrayal, and healing.",
 };
 
 const Blog1 = () => {

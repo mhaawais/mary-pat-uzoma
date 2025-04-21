@@ -8,13 +8,15 @@ import About from "@/components/about";
 import Blog from "@/components/blog";
 
 export const metadata: Metadata = {
-  title: "Home - Marry Pat Uzoma", // Title for the Home page
-  description: "Welcome to the home page of My Website",
+  title: "Home - Marry Pat Uzoma",  
+  description: "Marypee Official - Author of 'Misplaced Trust and the Power of Forgiveness.' Read her inspiring books and blogs on faith, heartbreak, and more.",
+
 };
 
 export default function Home() {
+
   return (
-    <div>
+    <div className="bg-black">
       <Header />
       <Hero />
       <Four />
@@ -22,5 +24,5 @@ export default function Home() {
       <Blog />
       <Footer />
     </div>
-  );
+);
 }

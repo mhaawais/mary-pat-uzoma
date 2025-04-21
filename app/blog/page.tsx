@@ -4,11 +4,11 @@ import Link from 'next/link';
 import Header from '@/components/header';
 import Footer from '@/components/footer';
 import type { Metadata } from "next";
-import Blog from '@/components/blog';
+import Blogpage from '@/components/blogpage';
 
 export const metadata: Metadata = {
    title: "Blog - Marry Pat Uzoma",
-   description: "Read my all Blogs here",
+   description: "Blogs by Mary Pat Mbamah Uzoma - Read her latest posts on faith, life, and inspiration at Marypee Official.",
 };
 
 const Myblog = () => {
@@ -33,10 +33,11 @@ const Myblog = () => {
         </div>
       </div>
     </div>
-    <Blog />
+    <Blogpage />
     <Footer />
     </section>
   );
 };
 
 export default Myblog;
+

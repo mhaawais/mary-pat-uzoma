@@ -7,7 +7,7 @@ import { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: "Blog - Marry Pat Uzoma",
-  description: "Read my all Blogs here",
+  description: "Blog: From the Eyes of a Baby - Mary Pat Mbamah Uzoma reflects on innocence, new beginnings, and fresh perspectives.",
 };
 
 const Blog2 = () => {
