@@ -8,15 +8,14 @@ import About from "@/components/about";
 import Blog from "@/components/blog";
 
 export const metadata: Metadata = {
-  title: "Home - Marry Pat Uzoma",  
+  title: "Marypee Official | Mary Pat Mbamah Uzoma Books",  
   description: "Marypee Official - Author of 'Misplaced Trust and the Power of Forgiveness.' Read her inspiring books and blogs on faith, heartbreak, and more.",
 
 };
 
 export default function Home() {
-
   return (
-    <div className="bg-black">
+    <div>
       <Header />
       <Hero />
       <Four />

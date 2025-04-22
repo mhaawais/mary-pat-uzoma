@@ -41,9 +41,9 @@ const Footer = () => {
             height={45}
             className="w-11 h-11"
           />
-          <span className="text-xl md:text-2xl font-semibold text-myred font-custom">
+          <h1 className="text-xl md:text-2xl font-semibold text-myred font-custom">
             MARY PAT UZOMA
-          </span>
+          </h1>
         </a>
 
         {/* Mobile Menu Button */}

@@ -6,6 +6,7 @@ import Footer from '@/components/footer';
 import type { Metadata } from "next";
 import Image from 'next/image';
 import Four from '@/components/four';
+import { GiH2O } from 'react-icons/gi';
 
 export const metadata: Metadata = {
   title: "Author - Marry Pat Uzoma", 
@@ -56,9 +57,9 @@ const Author = () => {
               <h4 className="text-myred text-xl md:text-2xl font-bold tracking-wide mb-2 uppercase">
                 ABOUT MARRY —— 
               </h4>
-              <h3 className="text-white text-2xl md:text-3xl lg:text-4xl font-bold mb-6 text-left drop-shadow-[0_0_20px_theme('colors.myred')]">
+              <h2 className="text-white text-2xl md:text-3xl lg:text-4xl font-bold mb-6 text-left drop-shadow-[0_0_20px_theme('colors.myred')]">
                 Mary Pat Mbamah Uzoma (Marypee): A Life of Faith, Strength, and Purpose
-              </h3>
+              </h2>
               <div className="text-white text-base md:text-lg space-y-6 leading-relaxed">
                 <p className="tracking-tight">
                   Mary Pat Uzoma, affectionately known as Marypee, was born and raised in Eastern Nigeria, in the heart of Igbo land. From early on, she had a passion for learning and uplifting others. She graduated from Awka College of Education in Anambra State with a Nigerian Certificate in Education, a milestone that began her lifelong love for teaching and making a difference in people’s lives.
