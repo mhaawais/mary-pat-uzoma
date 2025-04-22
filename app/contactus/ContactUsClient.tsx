@@ -101,13 +101,13 @@ const ContactUsClient = () => {
         <div className="w-full md:w-1/2 bg-black flex flex-col justify-center p-6 md:p-8 mt-16 md:mt-6">
           {/* Reduced padding from p-12 to p-8 on md screens */}
           <h3 className="text-myred text-lg md:text-xl font-semibold uppercase tracking-wide">
-            ABOUT MARRY —— 
+            ABOUT MARY —— 
           </h3>
           <h2
             className="text-white text-3xl md:text-4xl font-bold leading-tight mt-2"
             style={{ textShadow: '1px 1px 2px myred' }}
           >
-            MESSAGE MARRY PAT
+            MESSAGE MARY PAT
           </h2>
           <p className="text-white text-base md:text-lg lg:text-xl mt-6 leading-relaxed mb-8">
             I would love to hear from you, please drop me a line!

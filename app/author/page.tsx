@@ -55,7 +55,7 @@ const Author = () => {
             {/* Title + First Paragraphs */}
             <div className="w-full lg:w-2/3">
               <h4 className="text-myred text-xl md:text-2xl font-bold tracking-wide mb-2 uppercase">
-                ABOUT MARRY —— 
+                ABOUT MARY —— 
               </h4>
               <h2 className="text-white text-2xl md:text-3xl lg:text-4xl font-bold mb-6 text-left drop-shadow-[0_0_20px_theme('colors.myred')]">
                 Mary Pat Mbamah Uzoma (Marypee): A Life of Faith, Strength, and Purpose

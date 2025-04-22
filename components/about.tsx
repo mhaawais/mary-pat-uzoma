@@ -30,7 +30,7 @@ const About = () => {
       {/* Right Side - Content */}
       <div className="w-full md:w-1/2 bg-black flex flex-col justify-center p-6 md:p-12">
         <h3 className="text-myred text-lg md:text-xl font-semibold uppercase tracking-wide">
-          ABOUT MARRY ——
+          ABOUT MARY ——
         </h3>
         <h2 
           className="text-white text-3xl md:text-4xl font-bold leading-tight mt-2"
