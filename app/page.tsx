@@ -1,27 +1,32 @@
-import React from "react";
-import Header from "@/components/header";
-import Footer from "@/components/footer";
-import type { Metadata } from "next";
-import Four from "@/components/four";
-import Hero from "@/components/hero";
-import About from "@/components/about";
-import Blog from "@/components/blog";
+import React from "react"
+import Header from "../components/header"
+import Footer from "../components/footer"
+import type { Metadata } from "next"
+import Four from "../components/four"
+import Hero from "../components/hero"
+import About from "../components/about"
+import Blog from "../components/blog"
+import { fetchBooks, fetchBlogs, fetchProfile } from "../lib/api"
 
 export const metadata: Metadata = {
-  title: "Marypee Official | Mary Pat Mbamah Uzoma Books",  
-  description: "Marypee Official - Author of 'Misplaced Trust and the Power of Forgiveness.' Read her inspiring books and blogs on faith, heartbreak, and more.",
+  title: "Marypee Official | Mary Pat Mbamah Uzoma Books",
+  description:
+    "Marypee Official - Author of 'Misplaced Trust and the Power of Forgiveness.' Read her inspiring books and blogs on faith, heartbreak, and more.",
+}
 
-};
+export default async function Home() {
+  // Fetch data from API
+  const [books, blogs, profile] = await Promise.all([fetchBooks(), fetchBlogs(), fetchProfile()])
 
-export default function Home() {
   return (
     <div>
-      <Header />
+      <Header books={books} />
       <Hero />
-      <Four />
-      <About />
-      <Blog />
-      <Footer />
+      <Four books={books} />
+      <About profile={profile} /> {/* Line 25: TS2322 */}
+      <Blog blogs={blogs} />
+      <Footer books={books} profile={profile} /> {/* Line 27: TS2322 */}
     </div>
-);
+  )
 }
+

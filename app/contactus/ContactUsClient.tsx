@@ -1,10 +1,9 @@
 'use client';
 
-import React, { useState, FormEvent, ChangeEvent } from 'react';
+import React, { useState, useEffect, FormEvent, ChangeEvent } from 'react';
 import Image from 'next/image';
 import { FaChevronRight } from 'react-icons/fa';
 import Link from 'next/link';
-import Header from '@/components/header';
 import Footer from '@/components/footer';
 
 const ContactUsClient = () => {
@@ -14,6 +13,23 @@ const ContactUsClient = () => {
     message: '',
   });
   const [status, setStatus] = useState('');
+  const [profile, setProfile] = useState<any>(null); // profile state added
+
+  // Fetch profile for Footer
+  useEffect(() => {
+    const fetchProfile = async () => {
+      try {
+        const res = await fetch('/api/profile');
+        if (!res.ok) throw new Error('Failed to fetch profile');
+        const data = await res.json();
+        setProfile(data);
+      } catch (err) {
+        console.error('Profile fetch error:', err);
+      }
+    };
+
+    fetchProfile();
+  }, []);
 
   const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -27,9 +43,7 @@ const ContactUsClient = () => {
     try {
       const response = await fetch('https://formspree.io/f/xyzevalb', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData),
       });
 
@@ -46,75 +60,63 @@ const ContactUsClient = () => {
 
   return (
     <div className="bg-black text-white">
-      <Header />
 
-      {/* Top Section: Breadcrumb with Image Background */}
-      <section className="relative w-full py-16 md:py-20 lg:py-24">
-        {/* Background Image with 15% Opacity */}
+      {/* Breadcrumb Hero Section */}
+      <section className="relative w-full py-16 md:py-20 lg:py-24 overflow-hidden">
         <div
           className="absolute inset-0 bg-cover bg-center opacity-20 z-0"
-          style={{ backgroundImage: `url(/assets/images/contact1.jpg)` }} // Replace with your image path
+          style={{ backgroundImage: `url(/assets/images/contact1.jpg)` }}
         ></div>
-        <div className="container mx-auto flex flex-col justify-center items-center px-4 relative z-10">
-          <h2 className="font-bold text-3xl md:text-5xl lg:text-6xl text-white border-t-2 border-b-2 border-myred py-4 mb-8">
+        <div className="container mx-auto px-4 flex flex-col justify-center items-center relative z-10">
+          <h2 className="font-bold text-3xl md:text-5xl lg:text-6xl text-white border-t-2 border-b-2 border-myred py-4 mb-6">
             CONTACT
           </h2>
-          <div className="flex items
-
--center gap-3">
+          <div className="flex items-center gap-3">
             <Link href="/">
-              <p className="text-lg md:text-xl font-bold text-white hover:text-myred transition duration-200 underline cursor-pointer">
+              <p className="text-lg md:text-xl font-bold text-white hover:text-myred transition underline cursor-pointer">
                 HOME
               </p>
             </Link>
             <FaChevronRight className="text-myred text-lg md:text-xl" />
-            <p className="text-lg md:text-xl font-bold text-white hover:text-myred transition duration-200">
-              CONTACT
-            </p>
+            <p className="text-lg md:text-xl font-bold text-white">CONTACT</p>
           </div>
         </div>
       </section>
 
-      {/* Combined Section */}
+      {/* Main Contact Section */}
       <section className="flex flex-col md:flex-row w-full min-h-screen">
-        {/* Left Section with background and image */}
+        {/* Left Section */}
         <div className="w-full md:w-1/2 relative flex items-center justify-end bg-black h-[60vh] md:h-auto">
           <div
             className="absolute left-0 top-0 bottom-0 w-[70%] bg-cover bg-center z-0"
             style={{ backgroundImage: `url(/assets/images/contact2.jpg)` }}
           ></div>
-
-          <div className="relative z-10 w-64 h-64 sm:w-72 sm:h-72 md:w-80 md:h-80 lg:w-96 lg:h-96 mr-2 md:mr-2 mt-12 md:mt-0">
-            {/* Adjusted image sizes for responsiveness and reduced margin */}
+          <div className="relative z-10 w-64 h-64 sm:w-72 sm:h-72 md:w-80 md:h-80 lg:w-96 lg:h-96 mr-4 md:mr-6 mt-12 md:mt-0">
             <Image
               src="/assets/images/contactformpic.jpg"
               alt="Mary Pat"
               height={500}
               width={300}
-              className="rounded-lg shadow-lg object-cover" // Added object-cover for better scaling
+              className="rounded-lg shadow-lg object-cover w-full h-full"
               priority
             />
           </div>
         </div>
 
-        {/* Right Side Content */}
-        <div className="w-full md:w-1/2 bg-black flex flex-col justify-center p-6 md:p-8 mt-16 md:mt-6">
-          {/* Reduced padding from p-12 to p-8 on md screens */}
+        {/* Right Section */}
+        <div className="w-full md:w-1/2 bg-black flex flex-col justify-center p-6 md:p-10 mt-10 md:mt-6">
           <h3 className="text-myred text-lg md:text-xl font-semibold uppercase tracking-wide">
-            ABOUT MARY —— 
+            ABOUT MARY ——
           </h3>
-          <h2
-            className="text-white text-3xl md:text-4xl font-bold leading-tight mt-2"
-            style={{ textShadow: '1px 1px 2px myred' }}
-          >
+          <h2 className="text-white text-3xl md:text-4xl font-bold leading-tight mt-2">
             MESSAGE MARY PAT
           </h2>
           <p className="text-white text-base md:text-lg lg:text-xl mt-6 leading-relaxed mb-8">
             I would love to hear from you, please drop me a line!
           </p>
 
-          {/* Contact Form */}
           <form onSubmit={handleSubmit} className="space-y-5">
+            {/* Name */}
             <div className="flex flex-col">
               <label htmlFor="name" className="text-xs font-semibold text-gray-300 uppercase mb-2">
                 Name
@@ -131,6 +133,7 @@ const ContactUsClient = () => {
               />
             </div>
 
+            {/* Email */}
             <div className="flex flex-col">
               <label htmlFor="email" className="text-xs font-semibold text-gray-300 uppercase mb-2">
                 Email
@@ -147,6 +150,7 @@ const ContactUsClient = () => {
               />
             </div>
 
+            {/* Message */}
             <div className="flex flex-col">
               <label htmlFor="message" className="text-xs font-semibold text-gray-300 uppercase mb-2">
                 Message
@@ -163,6 +167,7 @@ const ContactUsClient = () => {
               />
             </div>
 
+            {/* Submit Button */}
             <button
               type="submit"
               className="w-full bg-myred text-white py-3 rounded text-sm font-medium hover:opacity-90 transition-colors"
@@ -172,11 +177,7 @@ const ContactUsClient = () => {
           </form>
 
           {status && (
-            <p
-              className={`mt-5 text-sm ${
-                status.includes('successfully') ? 'text-green-400' : 'text-red-500'
-              }`}
-            >
+            <p className={`mt-5 text-sm ${status.includes('successfully') ? 'text-green-400' : 'text-red-500'}`}>
               {status}
             </p>
           )}
@@ -184,13 +185,13 @@ const ContactUsClient = () => {
           <div className="mt-8 text-sm text-gray-400">
             Or email me at{' '}
             <a href="mailto:info@marypeeofficial.com" className="text-myred hover:underline">
-            info@marypeeofficial.com
+              info@marypeeofficial.com
             </a>
           </div>
         </div>
       </section>
 
-      <Footer />
+      {profile && <Footer profile={profile} />}
     </div>
   );
 };

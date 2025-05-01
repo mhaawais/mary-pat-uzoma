@@ -1,11 +1,17 @@
-import type { Metadata } from "next";
+import React from 'react'; // Add this import
+import { fetchBooks } from "../../lib/api";
+import Header from "../../components/header";
+import Footer from "../../components/footer";
 import ContactUsClient from "./ContactUsClient";
 
-export const metadata: Metadata = {
-  title: "Contact - Marry Pat Uzoma",
-  description: "Contact Mary Pat Mbamah Uzoma - Reach out for book inquiries, speaking engagements, or collaborations.",
-};
+export default async function ContactUsPage() {
+  const books = await fetchBooks();
 
-export default function ContactUs() {
-  return <ContactUsClient />;
+  return (
+    <section>
+      <Header books={books} />
+      <ContactUsClient />
+      <Footer books={books} profile={null} />
+    </section>
+  );
 }
