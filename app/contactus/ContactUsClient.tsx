@@ -13,9 +13,8 @@ const ContactUsClient = () => {
     message: '',
   });
   const [status, setStatus] = useState('');
-  const [profile, setProfile] = useState<any>(null); // profile state added
+  const [profile, setProfile] = useState<any>(null);
 
-  // Fetch profile for Footer
   useEffect(() => {
     const fetchProfile = async () => {
       try {
@@ -60,8 +59,6 @@ const ContactUsClient = () => {
 
   return (
     <div className="bg-black text-white">
-
-      {/* Breadcrumb Hero Section */}
       <section className="relative w-full py-16 md:py-20 lg:py-24 overflow-hidden">
         <div
           className="absolute inset-0 bg-cover bg-center opacity-20 z-0"
@@ -83,9 +80,7 @@ const ContactUsClient = () => {
         </div>
       </section>
 
-      {/* Main Contact Section */}
       <section className="flex flex-col md:flex-row w-full min-h-screen">
-        {/* Left Section */}
         <div className="w-full md:w-1/2 relative flex items-center justify-end bg-black h-[60vh] md:h-auto">
           <div
             className="absolute left-0 top-0 bottom-0 w-[70%] bg-cover bg-center z-0"
@@ -103,7 +98,6 @@ const ContactUsClient = () => {
           </div>
         </div>
 
-        {/* Right Section */}
         <div className="w-full md:w-1/2 bg-black flex flex-col justify-center p-6 md:p-10 mt-10 md:mt-6">
           <h3 className="text-myred text-lg md:text-xl font-semibold uppercase tracking-wide">
             ABOUT MARY ——
@@ -116,7 +110,6 @@ const ContactUsClient = () => {
           </p>
 
           <form onSubmit={handleSubmit} className="space-y-5">
-            {/* Name */}
             <div className="flex flex-col">
               <label htmlFor="name" className="text-xs font-semibold text-gray-300 uppercase mb-2">
                 Name
@@ -133,7 +126,6 @@ const ContactUsClient = () => {
               />
             </div>
 
-            {/* Email */}
             <div className="flex flex-col">
               <label htmlFor="email" className="text-xs font-semibold text-gray-300 uppercase mb-2">
                 Email
@@ -150,7 +142,6 @@ const ContactUsClient = () => {
               />
             </div>
 
-            {/* Message */}
             <div className="flex flex-col">
               <label htmlFor="message" className="text-xs font-semibold text-gray-300 uppercase mb-2">
                 Message
@@ -167,7 +158,6 @@ const ContactUsClient = () => {
               />
             </div>
 
-            {/* Submit Button */}
             <button
               type="submit"
               className="w-full bg-myred text-white py-3 rounded text-sm font-medium hover:opacity-90 transition-colors"

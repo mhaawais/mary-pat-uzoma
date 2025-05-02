@@ -1,25 +1,20 @@
-import React from 'react'; // Add this import
+import React from "react";
 import { fetchBookBySlug, fetchBooks } from "../../../lib/api";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import Header from "../../../components/header";
 import Footer from "../../../components/footer";
 import type { Metadata } from "next";
-import Link from 'next/link';
+import Link from "next/link";
 import { FaChevronRight } from "react-icons/fa";
 
+export const dynamic = "force-dynamic"; // 👈 Force server-side rendering every time
 
 interface BookPageProps {
   params: { slug: string };
 }
 
-export async function generateStaticParams() {
-  const books = await fetchBooks();
-  return books.map((book) => ({
-    slug: book.slug,
-  }));
-}
-
+// Optional: keep metadata dynamic if needed
 export async function generateMetadata({ params }: BookPageProps): Promise<Metadata> {
   const book = await fetchBookBySlug(params.slug);
   if (!book) {
@@ -66,7 +61,6 @@ export default async function BookPage({ params }: BookPageProps) {
         </div>
       </div>
 
-
       <div className="bg-black text-white container mx-auto px-4 py-16">
         <h1 className="text-4xl font-bold">{book.title}</h1>
         <div className="flex flex-col md:flex-row gap-8 mt-8">
@@ -84,9 +78,8 @@ export default async function BookPage({ params }: BookPageProps) {
           </div>
         </div>
       </div>
+
       <Footer books={books} profile={null} />
     </section>
   );
 }
-
-

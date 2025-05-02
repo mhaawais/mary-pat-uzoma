@@ -6,6 +6,9 @@ import Footer from "@/components/footer";
 import { FaChevronRight } from "react-icons/fa";
 import { fetchBlogs, fetchProfile } from "@/lib/api";
 
+// ✅ Force fresh server-side rendering on every request
+export const dynamic = "force-dynamic";
+
 export default async function BlogPage() {
   const [blogs, profile] = await Promise.all([fetchBlogs(), fetchProfile()]);
 

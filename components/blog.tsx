@@ -17,34 +17,40 @@ const Blog = ({ blogs }: BlogProps) => {
           Explore stories that inspire and provoke thought
         </p>
       </div>
-      <div className="flex flex-col md:flex-row gap-8 max-w-6xl w-full">
-        {blogs.map((blog) => (
-          <div
-            key={blog.id}
-            className="flex-1 bg-white rounded-lg shadow-lg p-6 flex flex-col transform transition duration-300 hover:shadow-xl"
-          >
-            <h2 className="text-2xl font-bold text-white bg-gray-800 p-4 rounded-t-lg">
-              <Link href={`/detailblog/${blog.slug}`}>{blog.title}</Link>
-            </h2>
-            <div className="w-full max-w-full h-auto mt-4">
-              <Image
-                src={blog.image || "/placeholder.svg"}
-                alt={`${blog.title} Image`}
-                width={400}
-                height={200}
-                className="rounded-md object-scale-down"
-              />
-            </div>
-            <h3 className="text-lg font-semibold text-myred mt-4">{blog.subtitle}</h3>
-            <p className="text-gray-600 mt-2 flex-grow">{blog.summary}</p>
-            <Link
-              href={`/detailblog/${blog.slug}`}
-              className="mt-4 inline-block bg-myred text-white font-semibold py-2 px-4 rounded hover:bg-red-700 transition duration-300 text-center transform hover:scale-105"
+
+      <div className="flex flex-wrap justify-center gap-8 max-w-6xl w-full">
+        {Array.isArray(blogs) && blogs.length > 0 ? (
+          blogs.map((blog) => (
+            <div
+              key={blog.id}
+              className="min-w-[300px] max-w-md w-full bg-white rounded-lg shadow-lg p-6 flex flex-col transform transition duration-300 hover:shadow-xl"
             >
-              Read More →
-            </Link>
-          </div>
-        ))}
+              <h2 className="text-2xl font-bold text-white bg-gray-800 p-4 rounded-t-lg">
+                <Link href={`/detailblog/${blog.slug}`}>{blog.title}</Link>
+              </h2>
+              <div className="w-full h-auto mt-4">
+                <Image
+                  src={blog.image || "/placeholder.svg"}
+                  alt={`${blog.title} Image`}
+                  width={400}
+                  height={200}
+                  className="rounded-md"
+                  style={{ objectFit: "cover" }}
+                />
+              </div>
+              <h3 className="text-lg font-semibold text-myred mt-4">{blog.subtitle}</h3>
+              <p className="text-gray-600 mt-2 flex-grow">{blog.summary}</p>
+              <Link
+                href={`/detailblog/${blog.slug}`}
+                className="mt-4 inline-block bg-myred text-white font-semibold py-2 px-4 rounded hover:bg-red-700 transition duration-300 text-center transform hover:scale-105"
+              >
+                Read More →
+              </Link>
+            </div>
+          ))
+        ) : (
+          <p className="text-white text-lg text-center w-full">No blogs available at the moment.</p>
+        )}
       </div>
     </div>
   );
