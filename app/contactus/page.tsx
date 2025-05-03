@@ -9,9 +9,7 @@ export default async function ContactUsPage() {
 
   return (
     <section>
-      <Header books={books} />
       <ContactUsClient />
-      <Footer books={books} profile={null} />
     </section>
   );
 }

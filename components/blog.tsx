@@ -19,7 +19,7 @@ const Blog = ({ blogs }: BlogProps) => {
       </div>
 
       <div className="flex flex-wrap justify-center gap-8 max-w-6xl w-full">
-        {Array.isArray(blogs) && blogs.length > 0 ? (
+        {blogs?.length ? (
           blogs.map((blog) => (
             <div
               key={blog.id}
@@ -34,8 +34,7 @@ const Blog = ({ blogs }: BlogProps) => {
                   alt={`${blog.title} Image`}
                   width={400}
                   height={200}
-                  className="rounded-md"
-                  style={{ objectFit: "cover" }}
+                  className="rounded-md object-cover"
                 />
               </div>
               <h3 className="text-lg font-semibold text-myred mt-4">{blog.subtitle}</h3>
