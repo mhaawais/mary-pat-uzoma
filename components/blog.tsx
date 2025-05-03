@@ -19,7 +19,7 @@ const Blog = ({ blogs }: BlogProps) => {
       </div>
 
       <div className="flex flex-wrap justify-center gap-8 max-w-6xl w-full">
-        {blogs?.length ? (
+        {blogs?.length > 0 ? (
           blogs.map((blog) => (
             <div
               key={blog.id}
@@ -48,7 +48,9 @@ const Blog = ({ blogs }: BlogProps) => {
             </div>
           ))
         ) : (
-          <p className="text-white text-lg text-center w-full">No blogs available at the moment.</p>
+          <p className="text-white text-lg text-center w-full">
+            No blogs available at the moment.
+          </p>
         )}
       </div>
     </div>
