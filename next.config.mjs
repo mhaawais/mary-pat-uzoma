@@ -1,10 +1,11 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: 'export', // This makes Next.js generate static files
+  reactStrictMode: true,
   images: {
-    unoptimized: true, // Disables the Image Optimization API
+    unoptimized: true, // Keep this if you're using static hosting like Hostinger
   },
-  trailingSlash: true, // Ensures trailing slashes in URLs (good for static sites)
-};
+  // ✅ Allow dynamic rendering (Vercel will use serverless functions)
+  // ❌ Do NOT include: output: "export"
+}
 
 export default nextConfig;
