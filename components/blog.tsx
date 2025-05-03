@@ -1,12 +1,13 @@
+// app/blogs/page.tsx (or wherever you render your Blog page)
+import { fetchBlogs } from "@/lib/api";
 import Image from "next/image";
-import type { Blog as BlogType } from "@/lib/api";
 import Link from "next/link";
 
-interface BlogProps {
-  blogs: BlogType[];
-}
+export const dynamic = "force-dynamic"; // Ensures SSR on every request (optional)
 
-const Blog = ({ blogs }: BlogProps) => {
+const BlogPage = async () => {
+  const blogs = await fetchBlogs();
+
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-black px-4 sm:px-6 lg:px-8">
       <div className="text-center mb-8 sm:mb-12">
@@ -57,4 +58,4 @@ const Blog = ({ blogs }: BlogProps) => {
   );
 };
 
-export default Blog;
+export default BlogPage;
